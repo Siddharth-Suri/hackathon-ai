@@ -1,5 +1,7 @@
 var canvas = document.createElement("canvas");
 var ctx = canvas.getContext("2d");
+let highScore = 0;
+
 canvas.width = 602;
 canvas.height = 604;
 document.body.appendChild(canvas);
@@ -302,7 +304,16 @@ var render = function () {
 	ctx.font = "24px Helvetica";
 	ctx.textAlign = "left";
 	ctx.textBaseline = "top";
-	ctx.fillText("Points: " +parseInt(bird.score), 12, 32);
+	ctx.fillText("Score : " +parseInt(bird.score), 12, 32);
+
+	if(bird.score > highScore){
+		highScore = bird.score;
+	}
+	ctx.fillStyle = "rgb(243, 243, 0)";
+	ctx.font = "24px Helvetica";
+	ctx.textAlign = "left";
+	ctx.textBaseline = "top";
+	ctx.fillText("Highscore : " +parseInt(highScore), 12, 56);
 
 	
 };
